@@ -18,8 +18,9 @@ $ ./Run.sh setup
 Use `./Run.sh help` to view available commands.
 
 ## Background
-This buildroot is a sharable build environment to build OpenWRT images with a custom project specific configuration and packages. The resulting image can be flashed to a OpenWRT compatible device, currently specifically the TP-Link MR3020.
-Instead of contaminating your machine with lots of build dependencies, which vary per operating system, we create a separate virtual machine using [Docker](http://docker.com/) ([Understanding docker](http://docs.docker.com/introduction/understanding-docker/)).
+This buildroot is a sharable build environment to build OpenWRT images with a custom project specific configuration and packages. The resulting image can be flashed to a OpenWRT compatible device, currently specifically the TP-Link MR3020. 
+Instead of contaminating your machine with lots of build dependencies, which vary per operating system, we create a separate virtual machine using [Docker](http://docker.com/) ([Understanding docker](http://docs.docker.com/introduction/understanding-docker/)). This makes it easier for a team to work on an OpenWRT project. Because the Docker image (with most of OpenWRT precompiled) can be shared the build time will decrease dramatically.
+One of the goals is to make it simple enough for non Docker or Linux experts to grasp and use. 
 
 We created [Run.sh](https://github.com/Doodle3D/openwrt-buildroot/blob/master/Run.sh) to automate the most common use case; building an image and flashing this to a OpenWRT device.
 
