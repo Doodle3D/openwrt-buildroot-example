@@ -32,6 +32,9 @@ RUN git clone git://git.openwrt.org/14.07/openwrt.git trunk
 # set workdir
 WORKDIR /home/openwrt/trunk/
 
+# validate OpenWRT build prerequisites
+RUN make prereq
+
 # copy build script into container
 COPY Build.sh /home/openwrt/bin/
 RUN sudo chmod +x /home/openwrt/bin/Build.sh
@@ -53,11 +56,9 @@ RUN cat /home/openwrt/config/diffconfig >> .config
 # NOTE: run defconfig again to apply overrides
 RUN make defconfig
 
-# validate prerequisites
-RUN make prereq
-
 # download sources before make
 RUN make download
+
 # NOTE: run defconfig again to apply overrides (again after download)
 RUN make defconfig
 
