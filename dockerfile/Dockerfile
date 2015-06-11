@@ -8,14 +8,6 @@ RUN apt-get update &&\
                        libncurses5-dev zlib1g-dev gawk flex gettext wget unzip python nano &&\
     apt-get clean
 
-# install Node.js and NPM
-# https://github.com/nodesource/distributions#usage-instructions
-RUN apt-get update &&\
-    apt-get install -y curl &&\
-    curl -sL https://deb.nodesource.com/setup | bash - &&\
-    apt-get install -y nodejs &&\
-    apt-get clean
-
 # add user
 RUN useradd -m openwrt
 RUN echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt
