@@ -75,6 +75,27 @@ function checkdocker() {
 }
 
 ###############################################
+function image() {
+  echo 'Check, pull or build image ...'
+
+  checkdocker
+  
+  if [ `docker images | grep "$DOCKER_IMAGE" | wc -l` -gt 0 ]; then
+    echo '[note] found docker image: '"$DOCKER_IMAGE"
+  else
+    echo '[note] image not found, checking docker hub'
+    docker pull "$DOCKER_IMAGE"
+    if [ $RESULT -eq 0 ]; then
+      echo '[ok] pulled docker image successful'
+    else
+      echo '[note] docker image not found on docker hub'
+      echo "> build image"
+      docker build -t $DOCKER_IMAGE dockerfile/
+    fi
+  fi
+}
+
+###############################################
 function build() {
   echo 'build...'
 
@@ -269,7 +290,7 @@ function help() {
 
 ###############################################
 case "$1" in
-setup) clone && build ;;
+setup) clone && image && build ;;
 clone) clone ;;
 build) build ;;
 flash) flash $2 $3 ;;
