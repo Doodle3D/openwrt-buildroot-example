@@ -80,3 +80,7 @@ For Docker to access this Docker Host it needs certain Environment variables. Ou
 eval "$(docker-machine env dev)"
 ```
 Save and `$ source ~/.bash_profile` to load the changes.
+
+When docker or docker-machine isn't found, please try:
+- Open *Kitematic*
+- In the menu click: *Kitematic (Beta)* > *Install Docker Commands*
