@@ -51,8 +51,8 @@ RUN make download
 # NOTE: run defconfig again to apply overrides (again after download)
 RUN make defconfig
 
-# build verbose over multiple cores
-RUN make V=s -j $(($(getconf _NPROCESSORS_ONLN)+1))
+# build in verbose mode
+RUN make V=s
 
 # prepare customfeeds folder (virtual mounted folder)
 RUN cp feeds.conf.default feeds.conf
