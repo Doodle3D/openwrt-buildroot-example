@@ -293,6 +293,7 @@ case "$1" in
 setup) clone && image && build ;;
 clone) clone ;;
 build) build ;;
+image) image ;;
 flash) flash $2 $3 ;;
 deploy) build && flash ;;
 interactive) interactive ;;
