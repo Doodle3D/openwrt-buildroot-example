@@ -24,9 +24,6 @@ RUN git clone git://git.openwrt.org/14.07/openwrt.git trunk
 # set workdir
 WORKDIR /home/openwrt/trunk/
 
-# validate OpenWRT build prerequisites
-RUN make prereq
-
 # copy build script into container
 COPY Build.sh /home/openwrt/bin/
 RUN sudo chmod +x /home/openwrt/bin/Build.sh
