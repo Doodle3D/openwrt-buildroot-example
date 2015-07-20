@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 VOLUME_BIN="$PWD/bin:/home/openwrt/shared/bin"
 VOLUME_FEEDS="$PWD/customfeeds:/home/openwrt/shared/customfeeds"
